@@ -110,8 +110,9 @@ dependencies {
     // Slf4J
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '1.7.30'
 
-    // ModelMapper TODO: mapstruct
-    implementation group: 'org.modelmapper.extensions', name: 'modelmapper-spring', version: '2.3.5'
+    // Mapstruct
+    implementation 'org.mapstruct:mapstruct:1.5.3.Final'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.3.Final'
 
     // OpenFeign
     //implementation 'org.springframework.cloud:spring-cloud-starter-openfeign'

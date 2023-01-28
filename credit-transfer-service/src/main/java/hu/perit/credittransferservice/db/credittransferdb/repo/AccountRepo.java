@@ -14,28 +14,25 @@
  * limitations under the License.
  */
 
-package hu.perit.credittransferservice.db.demodb.repo;
+package hu.perit.credittransferservice.db.credittransferdb.repo;
 
-import hu.perit.credittransferservice.db.demodb.table.UserEntity;
+import hu.perit.credittransferservice.db.credittransferdb.table.AccountEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Lock;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDateTime;
+import javax.persistence.LockModeType;
 import java.util.Optional;
 
 /**
  * @author Peter Nagy
  */
 
-public interface UserRepo extends JpaRepository<UserEntity, Long> {
+public interface AccountRepo extends JpaRepository<AccountEntity, Long>
+{
+    @Lock(LockModeType.PESSIMISTIC_WRITE)
+    @Query(value = "select e from AccountEntity e where e.iban = :iban")
+    Optional<AccountEntity> findByIbanWithWriteLock(String iban);
 
-    Optional<UserEntity> findByUserName(String userName);
-
-    @Modifying
-    @Transactional
-    @Query("UPDATE UserEntity u SET u.lastLoginTime = :loginTime WHERE u.userId = :userId")
-    void updateLastLoginTime(@Param("userId") long userId, @Param("loginTime") LocalDateTime loginTime);
+    Optional<AccountEntity> findByIban(String iban);
 }

@@ -36,11 +36,11 @@
 	<logger name="com.zaxxer.hikari" level="ERROR"/>
 	<logger name="org.springframework.boot.context.config" level="DEBUG"/>
 	<logger name="com.thoughtworks.xstream" level="OFF"/>
-	<!--
 	<logger name="org.hibernate.SQL" level="DEBUG"/>
 	<logger name="org.springframework.orm.jpa" level="DEBUG"/>
 	<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="TRACE"/>
 	<logger name="org.springframework.transaction.interceptor" level="TRACE"/>
+	<!--
 	-->
 	<!-- flooding the log -->
 	<logger name="com.netflix.discovery" level="ERROR"/>
@@ -65,7 +65,7 @@
 	<logger name="hu.perit.spvitamin.spring.restmethodlogger" level="DEBUG" additivity="false">
 		<appender-ref ref="application-message"/>
 	</logger>
-	<logger name="hu.perit.spvitamin.data.dynamicdatasource" level="INFO" additivity="false">
+	<logger name="hu.perit.spvitamin.spring.data.dynamicdatasource" level="INFO" additivity="false">
 		<appender-ref ref="application-message"/>
 	</logger>
 	<logger name="hu.perit.spvitamin.spring.security" level="DEBUG" additivity="false">
@@ -85,7 +85,7 @@
 	</logger>
 
 	<!-- Application specific loggers -->
-	<logger name="hu.perit.template.authservice" level="DEBUG" additivity="false">
+	<logger name="hu.perit.credittransferservice" level="DEBUG" additivity="false">
 		<appender-ref ref="application-message"/>
 	</logger>
 

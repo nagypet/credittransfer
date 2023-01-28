@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package hu.perit.credittransferservice.db.demodb;
+package hu.perit.credittransferservice.db.credittransferdb;
 
 import hu.perit.spvitamin.spring.data.config.DatasourceCollectionProperties;
 import hu.perit.spvitamin.spring.data.dynamicdatasource.ConnectionParam;
@@ -48,22 +48,22 @@ import java.util.Map;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = DemoDbConfig.PACKAGES,
-        entityManagerFactoryRef = DemoDbConfig.ENTITY_MANAGER_FACTORY,
-        transactionManagerRef = DemoDbConfig.TRANSACTION_MANAGER)
+@EnableJpaRepositories(basePackages = CreditTransferDbConfig.PACKAGES,
+        entityManagerFactoryRef = CreditTransferDbConfig.ENTITY_MANAGER_FACTORY,
+        transactionManagerRef = CreditTransferDbConfig.TRANSACTION_MANAGER)
 @Slf4j
-public class DemoDbConfig
+public class CreditTransferDbConfig
 {
-    static final String PACKAGES = "hu.perit.template.authservice.db.demodb";
+    static final String PACKAGES = "hu.perit.credittransferservice.db.credittransferdb";
     public static final String ENTITY_MANAGER_FACTORY = "entityManagerFactory";
     static final String TRANSACTION_MANAGER = "transactionManager";
 
-    public static final String PERSISTENCE_UNIT = "demodb";
+    public static final String PERSISTENCE_UNIT = "credit-transfer-db";
     private static final String DATASOURCE = "dataSource";
 
     private final ConnectionParam connectionParam;
 
-    public DemoDbConfig(DatasourceCollectionProperties dbProperties)
+    public CreditTransferDbConfig(DatasourceCollectionProperties dbProperties)
     {
         this.connectionParam = new ConnectionParam(dbProperties.getDatasource().get(PERSISTENCE_UNIT));
     }

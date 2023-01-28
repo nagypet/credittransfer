@@ -48,16 +48,6 @@ server:
   port: 8400
   ssl:
     enabled: false
-    key-store: classpath:jks/server-keystore.jks
-    key-store-password: changeit
-    key-alias: templatekey
-    key-password: changeit
-
-    trust-store: classpath:jks/client-truststore.jks
-    trust-store-password: changeit
-
-    # We do not have a real certificate
-    ignore-certificate-validation: true
 
   error:
     includeException: true
@@ -118,21 +108,10 @@ roles:
 
 
 #-----------------------------------------------------------------------------------------------------------------------
-# JWT token
-#-----------------------------------------------------------------------------------------------------------------------
-#JWT token
-jwt:
-  private-key-alias: templatekey
-  private-key-encryptedPassword: jdP5CKDIu5v2VUafF33pPQ==
-  public-key-alias: templatekey
-  expiration-in-minutes:  60
-
-
-#-----------------------------------------------------------------------------------------------------------------------
 # datasource demodb on h2
 #-----------------------------------------------------------------------------------------------------------------------
 datasource:
-  demodb:
+  credit-transfer-db:
     db-type: h2
     host: mem
     db-name: testdb;MODE=MSSQLServer

@@ -1,6 +1,6 @@
-package hu.perit.credittransferservice.db.demodb.repo;
+package hu.perit.credittransferservice.db.credittransferdb.repo;
 
-import hu.perit.credittransferservice.db.demodb.DemoDbConfig;
+import hu.perit.credittransferservice.db.credittransferdb.CreditTransferDbConfig;
 import hu.perit.spvitamin.spring.data.config.DatasourceCollectionProperties;
 import hu.perit.spvitamin.spring.data.config.DatasourceProperties;
 import hu.perit.spvitamin.spring.data.nativequery.NativeQueryRepoImpl;
@@ -22,9 +22,9 @@ public class NativeQueryRepo
 {
     private final NativeQueryRepoImpl impl;
 
-    public NativeQueryRepo(@Qualifier(value = DemoDbConfig.ENTITY_MANAGER_FACTORY) EntityManager em, DatasourceCollectionProperties dbProperties)
+    public NativeQueryRepo(@Qualifier(value = CreditTransferDbConfig.ENTITY_MANAGER_FACTORY) EntityManager em, DatasourceCollectionProperties dbProperties)
     {
-        DatasourceProperties datasourceProperties = dbProperties.getDatasource().get(DemoDbConfig.PERSISTENCE_UNIT);
+        DatasourceProperties datasourceProperties = dbProperties.getDatasource().get(CreditTransferDbConfig.PERSISTENCE_UNIT);
         this.impl = new NativeQueryRepoImpl(em, datasourceProperties.getSocketTimeout());
     }
 
