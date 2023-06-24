@@ -10,11 +10,11 @@ import hu.perit.credittransferservice.services.model.CreditTransferRequest;
 import hu.perit.credittransferservice.services.model.CreditTransferStatus;
 import hu.perit.spvitamin.core.StackTracer;
 import hu.perit.spvitamin.spring.exception.ResourceNotFoundException;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
-import javax.transaction.Transactional;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;

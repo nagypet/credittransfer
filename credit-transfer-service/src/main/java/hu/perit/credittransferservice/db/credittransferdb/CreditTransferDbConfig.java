@@ -19,6 +19,7 @@ package hu.perit.credittransferservice.db.credittransferdb;
 import hu.perit.spvitamin.spring.data.config.DatasourceCollectionProperties;
 import hu.perit.spvitamin.spring.data.dynamicdatasource.ConnectionParam;
 import hu.perit.spvitamin.spring.data.dynamicdatasource.DynamicDataSource;
+import jakarta.persistence.EntityManagerFactory;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.cfg.AvailableSettings;
 import org.hibernate.resource.jdbc.spi.PhysicalConnectionHandlingMode;
@@ -34,7 +35,6 @@ import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.Map;
